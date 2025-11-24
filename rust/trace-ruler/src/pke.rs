@@ -1,0 +1,127 @@
+use boring::sha::Sha512;
+use hpke::{
+    aead::{AeadTag, ChaCha20Poly1305, AesGcm256},
+    kdf::HkdfSha384,
+    kem::X25519HkdfSha256,
+    Deserializable, Kem as KemTrait, OpModeR, OpModeS, Serializable,
+};
+
+use rand::{rngs::StdRng, SeedableRng};
+use sha2::{Sha256, digest::Update, Digest};
+use apple_psi::{apple_psi::server};
+
+const INFO_STR: &[u8] = b"example session";
+
+// These are the only algorithms we're gonna use for this example
+pub type Kem = X25519HkdfSha256;
+type Aead = AesGcm256;
+type Kdf = HkdfSha384;
+
+// Initializes the server with a fresh keypair
+fn server_init() -> (<Kem as KemTrait>::PrivateKey, <Kem as KemTrait>::PublicKey) {
+    let mut csprng = StdRng::from_entropy();
+    Kem::gen_keypair(&mut csprng)
+}
+
+pub fn get_hpke_key_pair(regulator: &server) -> (<Kem as KemTrait>::PrivateKey, <Kem as KemTrait>::PublicKey) {
+    let mut hasher = Sha256::new().chain(regulator.sk.as_bytes());
+    let seed = hasher.finalize();
+    let mut csprng = StdRng::from_seed(seed.into());
+    Kem::gen_keypair(&mut csprng)
+}
+
+// Given a message and associated data, returns an encapsulated key, ciphertext, and tag. The
+// ciphertext is encrypted with the shared AEAD context
+pub fn encrypt_msg(
+    msg: &[u8],
+    associated_data: &[u8],
+    server_pk: &<Kem as KemTrait>::PublicKey,
+) -> (<Kem as KemTrait>::EncappedKey, Vec<u8>, AeadTag<Aead>) {
+    let mut csprng = StdRng::from_entropy();
+
+    // Encapsulate a key and use the resulting shared secret to encrypt a message. The AEAD context
+    // is what you use to encrypt.
+    let (encapped_key, mut sender_ctx) =
+        hpke::setup_sender::<Aead, Kdf, Kem, _>(&OpModeS::Base, server_pk, INFO_STR, &mut csprng)
+            .expect("invalid server pubkey!");
+
+    // On success, seal_in_place_detached() will encrypt the plaintext in place
+    let mut msg_copy = msg.to_vec();
+    let tag = sender_ctx
+        .seal_in_place_detached(&mut msg_copy, associated_data)
+        .expect("encryption failed!");
+
+    // Rename for clarity
+    let ciphertext = msg_copy;
+
+    (encapped_key, ciphertext, tag)
+}
+
+// Returns the decrypted client message
+pub fn decrypt_msg(
+    server_sk_bytes: &[u8],
+    encapped_key_bytes: &[u8],
+    ciphertext: &[u8],
+    associated_data: &[u8],
+    tag_bytes: &[u8],
+) -> Vec<u8> {
+    // We have to derialize the secret key, AEAD tag, and encapsulated pubkey. These fail if the
+    // bytestrings are the wrong length.
+    let server_sk = <Kem as KemTrait>::PrivateKey::from_bytes(server_sk_bytes)
+        .expect("could not deserialize server privkey!");
+    let tag = AeadTag::<Aead>::from_bytes(tag_bytes).expect("could not deserialize AEAD tag!");
+    let encapped_key = <Kem as KemTrait>::EncappedKey::from_bytes(encapped_key_bytes)
+        .expect("could not deserialize the encapsulated pubkey!");
+
+    // Decapsulate and derive the shared secret. This creates a shared AEAD context.
+    let mut receiver_ctx =
+        hpke::setup_receiver::<Aead, Kdf, Kem>(&OpModeR::Base, &server_sk, &encapped_key, INFO_STR)
+            .expect("failed to set up receiver!");
+
+    // On success, open_in_place_detached() will decrypt the ciphertext in place
+    let mut ciphertext_copy = ciphertext.to_vec();
+    receiver_ctx
+        .open_in_place_detached(&mut ciphertext_copy, associated_data, &tag)
+        .expect("invalid ciphertext!");
+
+    // Rename for clarity. Cargo clippy thinks it's unnecessary, but I disagree
+    #[allow(clippy::let_and_return)]
+    let plaintext = ciphertext_copy;
+
+    plaintext
+}
+
+fn main() {
+    // Set up the server
+    let (server_privkey, server_pubkey) = server_init();
+
+    // The message to be encrypted
+    let msg = b"Kat Branchman";
+    // Associated data that's authenticated but left unencrypted
+    let associated_data = b"Mr. Meow";
+
+    // Let the client send a message to the server using the server's pubkey
+    let (encapped_key, ciphertext, tag) = encrypt_msg(msg, associated_data, &server_pubkey);
+
+    // Now imagine we send everything over the wire, so we have to serialize it
+    let encapped_key_bytes = encapped_key.to_bytes();
+    let tag_bytes = tag.to_bytes();
+
+    // Now imagine the server had to reboot so it saved its private key in byte format
+    let server_privkey_bytes = server_privkey.to_bytes();
+
+    // Now let the server decrypt the message. The to_bytes() calls returned a GenericArray, so we
+    // have to convert them to slices before sending them
+    let decrypted_msg = decrypt_msg(
+        server_privkey_bytes.as_slice(),
+        encapped_key_bytes.as_slice(),
+        &ciphertext,
+        associated_data,
+        tag_bytes.as_slice(),
+    );
+
+    // Make sure everything decrypted correctly
+    assert_eq!(decrypted_msg, msg);
+
+    println!("MESSAGE SUCCESSFULLY SENT AND RECEIVED");
+}

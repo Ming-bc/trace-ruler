@@ -1,0 +1,1792 @@
+warning: unused import: `std::any::Any`
+ --> rust/rust-cuckoofilter/src/util.rs:5:5
+  |
+5 | use std::any::Any;
+  |     ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused imports: `Sha256` and `Sha512`
+  --> rust/rust-cuckoofilter/src/lib.rs:33:12
+   |
+33 | use sha2::{Sha512, Sha256, Digest};
+   |            ^^^^^^  ^^^^^^
+
+warning: unused imports: `OsRng` and `RngCore`
+  --> rust/rust-cuckoofilter/src/lib.rs:34:17
+   |
+34 | use rand_core::{RngCore, OsRng};
+   |                 ^^^^^^^  ^^^^^
+
+warning: unused import: `get_alt_index_from_u8`
+  --> rust/rust-cuckoofilter/src/lib.rs:40:12
+   |
+40 | use util::{get_alt_index_from_u8, get_fai_from_u8};
+   |            ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Digest`
+  --> rust/rust-cuckoofilter/src/lib.rs:33:28
+   |
+33 | use sha2::{Sha512, Sha256, Digest};
+   |                            ^^^^^^
+
+warning: unused variable: `fp`
+   --> rust/rust-cuckoofilter/src/lib.rs:173:19
+    |
+173 |         let FaI { fp, i1, i2 } = get_fai_from_u8::<H>(&data);
+    |                   ^^ help: try ignoring the field: `fp: _`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `i2`
+   --> rust/rust-cuckoofilter/src/lib.rs:173:27
+    |
+173 |         let FaI { fp, i1, i2 } = get_fai_from_u8::<H>(&data);
+    |                           ^^ help: try ignoring the field: `i2: _`
+
+warning: unused variable: `fp`
+   --> rust/rust-cuckoofilter/src/lib.rs:178:19
+    |
+178 |         let FaI { fp, i1, i2 } = get_fai_from_u8::<H>(&data);
+    |                   ^^ help: try ignoring the field: `fp: _`
+
+warning: unused variable: `i1`
+   --> rust/rust-cuckoofilter/src/lib.rs:178:23
+    |
+178 |         let FaI { fp, i1, i2 } = get_fai_from_u8::<H>(&data);
+    |                       ^^ help: try ignoring the field: `i1: _`
+
+warning: method `from_u8_Data` should have a snake case name
+  --> rust/rust-cuckoofilter/src/util.rs:45:8
+   |
+45 |     fn from_u8_Data<H: Hasher + Default>(data: &[u8;FINGERPRINT_SIZE]) ->Self{
+   |        ^^^^^^^^^^^^ help: convert the identifier to snake case: `from_u8_data`
+   |
+   = note: `#[warn(non_snake_case)]` on by default
+
+warning: call to `.clone()` on a reference in this situation does nothing
+  --> rust/rust-cuckoofilter/src/util.rs:59:58
+   |
+59 |         let (fp_hash, index_hash) = get_hash::<_, H>(data.clone());
+   |                                                          ^^^^^^^^ help: remove this redundant call
+   |
+   = note: the type `T` does not implement `Clone`, so calling `clone` on `&T` copies the reference, which does not do anything and can be removed
+   = note: `#[warn(noop_method_call)]` on by default
+
+warning: `cuckoofilter` (lib) generated 11 warnings (run `cargo fix --lib -p cuckoofilter` to apply 5 suggestions)
+warning: unused import: `curve25519_dalek::ristretto::RistrettoPoint`
+  --> rust/zkcredential/src/issuance.rs:18:5
+   |
+18 | use curve25519_dalek::ristretto::RistrettoPoint;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `curve25519_dalek::constants::BASEPOINT_ORDER`
+  --> rust/zkcredential/src/issuance.rs:21:5
+   |
+21 | use curve25519_dalek::constants::BASEPOINT_ORDER;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `rand::rngs::OsRng`
+  --> rust/zkcredential/src/issuance.rs:25:5
+   |
+25 | use rand::rngs::OsRng;
+   |     ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Sha256`
+  --> rust/zkcredential/src/issuance.rs:27:12
+   |
+27 | use sha2::{Sha256, Digest};
+   |            ^^^^^^
+
+warning: unused import: `OUR_SUPPORTED_ATTRS`
+  --> rust/zkcredential/src/issuance.rs:31:92
+   |
+31 |     Credential, CredentialKeyPair, CredentialPublicKey, SystemParams, NUM_SUPPORTED_ATTRS, OUR_SUPPORTED_ATTRS
+   |                                                                                            ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `self`
+  --> rust/zkcredential/src/presentation.rs:32:25
+   |
+32 | use crate::attributes::{self, Attribute, PublicAttribute, RevealedAttribute};
+   |                         ^^^^
+
+warning: unused import: `NUM_SUPPORTED_ATTRS`
+  --> rust/zkcredential/src/presentation.rs:35:5
+   |
+35 |     NUM_SUPPORTED_ATTRS,
+   |     ^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `IssuanceProofBuilder`, `IssuanceProof`, and `self`
+  --> rust/zkcredential/src/presentation.rs:37:23
+   |
+37 | use crate::issuance::{self, IssuanceProofBuilder, IssuanceProof};
+   |                       ^^^^  ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^
+
+warning: use of deprecated constant `curve25519_dalek::constants::BASEPOINT_ORDER`: Should not have been in public API
+  --> rust/zkcredential/src/credentials.rs:11:34
+   |
+11 | use curve25519_dalek::constants::BASEPOINT_ORDER;
+   |                                  ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated constant `curve25519_dalek::constants::BASEPOINT_ORDER`: Should not have been in public API
+   --> rust/zkcredential/src/credentials.rs:171:17
+    |
+171 |         let p = BASEPOINT_ORDER;
+    |                 ^^^^^^^^^^^^^^^
+
+warning: use of deprecated constant `curve25519_dalek::constants::BASEPOINT_ORDER`: Should not have been in public API
+  --> rust/zkcredential/src/issuance.rs:21:34
+   |
+21 | use curve25519_dalek::constants::BASEPOINT_ORDER;
+   |                                  ^^^^^^^^^^^^^^^
+
+warning: unused import: `Digest`
+  --> rust/zkcredential/src/issuance.rs:27:20
+   |
+27 | use sha2::{Sha256, Digest};
+   |                    ^^^^^^
+
+warning: unused import: `RevealedAttribute`
+  --> rust/zkcredential/src/presentation.rs:32:59
+   |
+32 | use crate::attributes::{self, Attribute, PublicAttribute, RevealedAttribute};
+   |                                                           ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Attribute`
+  --> rust/zkcredential/src/presentation.rs:32:31
+   |
+32 | use crate::attributes::{self, Attribute, PublicAttribute, RevealedAttribute};
+   |                               ^^^^^^^^^
+
+warning: unused import: `curve25519_dalek::traits::Identity`
+  --> rust/zkcredential/src/issuance.rs:19:5
+   |
+19 | use curve25519_dalek::traits::Identity;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::sho::ShoExt`
+  --> rust/zkcredential/src/issuance.rs:33:5
+   |
+33 | use crate::sho::ShoExt;
+   |     ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Attribute`
+  --> rust/zkcredential/src/issuance.rs:29:25
+   |
+29 | use crate::attributes::{Attribute, PublicAttribute};
+   |                         ^^^^^^^^^
+
+warning: unused variable: `system`
+  --> rust/zkcredential/src/credentials.rs:47:13
+   |
+47 |         let system = *SYSTEM_PARAMS;
+   |             ^^^^^^ help: if this is intentional, prefix it with an underscore: `_system`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `sho`
+   --> rust/zkcredential/src/credentials.rs:170:17
+    |
+170 |         let mut sho = ShoSha256::new(b"Signal_ZKCredential_ConstantSystemParams_generate_20230410");
+    |                 ^^^ help: if this is intentional, prefix it with an underscore: `_sho`
+
+warning: variable does not need to be mutable
+   --> rust/zkcredential/src/credentials.rs:170:13
+    |
+170 |         let mut sho = ShoSha256::new(b"Signal_ZKCredential_ConstantSystemParams_generate_20230410");
+    |             ----^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+   --> rust/zkcredential/src/issuance.rs:193:9
+    |
+193 |         mut self,
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/zkcredential/src/issuance.rs:232:9
+    |
+232 |         mut self,
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `x2`
+   --> rust/zkcredential/src/presentation.rs:302:44
+    |
+302 |         let CredentialPrivateKey { x0, x1, x2 } = key_pair.private_key();
+    |                                            ^^ help: try ignoring the field: `x2: _`
+
+warning: variable does not need to be mutable
+   --> rust/zkcredential/src/presentation.rs:305:13
+    |
+305 |         let mut V = (proof.u * x0 + &proof.C_m * x1) - proof.C_U_Prime;
+    |             ----^
+    |             |
+    |             help: remove this `mut`
+
+warning: fields `key_index`, `first_point_index`, and `second_point_index` are never read
+  --> rust/zkcredential/src/presentation.rs:69:5
+   |
+68 | struct AttributeRef {
+   |        ------------ fields in this struct
+69 |     key_index: Option<usize>,
+   |     ^^^^^^^^^
+70 |     first_point_index: usize,
+   |     ^^^^^^^^^^^^^^^^^
+71 |     second_point_index: usize,
+   |     ^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: field `attributes` is never read
+  --> rust/zkcredential/src/presentation.rs:75:5
+   |
+74 | struct PresentationProofBuilderCore<'a> { // TODO: add attr_scalar
+   |        ---------------------------- field in this struct
+75 |     attributes: Vec<AttributeRef>,
+   |     ^^^^^^^^^^
+
+warning: missing documentation for a struct field
+  --> rust/zkcredential/src/issuance.rs:41:5
+   |
+41 |     pub credential: Credential,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+note: the lint level is defined here
+  --> rust/zkcredential/src/lib.rs:39:9
+   |
+39 | #![warn(missing_docs)]
+   |         ^^^^^^^^^^^^
+
+warning: path statement drops value
+   --> rust/zkcredential/src/issuance.rs:107:9
+    |
+107 |         self;
+    |         ^^^^^ help: use `drop` to clarify the intent: `drop(self);`
+    |
+    = note: `#[warn(path_statements)]` on by default
+
+warning: missing documentation for a struct
+  --> rust/zkcredential/src/presentation.rs:42:1
+   |
+42 | pub struct PresentationProofCommitments { // TODO: Change to C_m, C_U_Prime不需要生成proof
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: missing documentation for a struct field
+  --> rust/zkcredential/src/presentation.rs:52:5
+   |
+52 |     pub u: RistrettoPoint,
+   |     ^^^^^^^^^^^^^^^^^^^^^
+
+warning: missing documentation for a struct field
+  --> rust/zkcredential/src/presentation.rs:53:5
+   |
+53 |     pub C_m: RistrettoPoint,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: missing documentation for a struct field
+  --> rust/zkcredential/src/presentation.rs:54:5
+   |
+54 |     pub C_U_Prime: RistrettoPoint,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: missing documentation for a method
+  --> rust/zkcredential/src/presentation.rs:59:5
+   |
+59 |     pub fn get_omega_bytes(&self) -> Vec<u8>{
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `zkcredential` (lib) generated 33 warnings (run `cargo fix --lib -p zkcredential` to apply 13 suggestions)
+warning: unused imports: `hash::RandomState` and `thread::sleep`
+ --> rust/apple-psi/src/apple_psi.rs:2:49
+  |
+2 | use std::{collections::hash_map::DefaultHasher, hash::RandomState, thread::sleep};
+  |                                                 ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused imports: `Fingerprint` and `util::get_fai_from_u8`
+ --> rust/apple-psi/src/apple_psi.rs:5:37
+  |
+5 | use cuckoofilter::{bucket::{Bucket, Fingerprint, BUCKET_SIZE, EMPTY_FINGERPRINT_DATA, FINGERPRINT_SIZE}, CuckooFilter, util::get_fai_from_u8};
+  |                                     ^^^^^^^^^^^                                                                        ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `ShoSha256`
+ --> rust/apple-psi/src/apple_psi.rs:6:37
+  |
+6 | use poksho::{ShoApi, ShoHmacSha256, ShoSha256};
+  |                                     ^^^^^^^^^
+
+warning: unused imports: `EcPointRef` and `ssl::select_next_proto`
+  --> rust/apple-psi/src/apple_psi.rs:11:54
+   |
+11 | use boring::{ec::{EcGroup, EcKey, EcKeyRef, EcPoint, EcPointRef}, ssl::select_next_proto};
+   |                                                      ^^^^^^^^^^   ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `PKey`
+  --> rust/apple-psi/src/apple_psi.rs:15:20
+   |
+15 | use boring::pkey::{PKey, Private, Public};
+   |                    ^^^^
+
+warning: unused import: `Hash`
+  --> rust/apple-psi/src/apple_psi.rs:16:25
+   |
+16 | use std::hash::{Hasher, Hash};
+   |                         ^^^^
+
+warning: type `client` should have an upper camel case name
+   --> rust/apple-psi/src/apple_psi.rs:122:12
+    |
+122 | pub struct client{
+    |            ^^^^^^ help: convert the identifier to upper camel case (notice the capitalization): `Client`
+    |
+    = note: `#[warn(non_camel_case_types)]` on by default
+
+warning: type `server` should have an upper camel case name
+   --> rust/apple-psi/src/apple_psi.rs:175:12
+    |
+175 | pub struct server<'a>{
+    |            ^^^^^^ help: convert the identifier to upper camel case (notice the capitalization): `Server`
+
+warning: unused import: `Hasher`
+  --> rust/apple-psi/src/apple_psi.rs:16:17
+   |
+16 | use std::hash::{Hasher, Hash};
+   |                 ^^^^^^
+
+warning: variable does not need to be mutable
+  --> rust/apple-psi/src/apple_psi.rs:87:9
+   |
+87 |     let mut hasher = Sha256::new().chain(msg);
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+  --> rust/apple-psi/src/apple_psi.rs:95:9
+   |
+95 |     let mut hasher = Sha256::new().chain(msg);
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/apple-psi/src/apple_psi.rs:308:17
+    |
+308 |             let mut ki: RistrettoPoint; // K[i]
+    |                 ----^^
+    |                 |
+    |                 help: remove this `mut`
+
+warning: unused variable: `point_args`
+   --> rust/apple-psi/src/apple_psi.rs:378:21
+    |
+378 |                 let point_args = self.prepare_point_args(fake_ki, h2p, self.pk);
+    |                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_point_args`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: variable `S` should have a snake case name
+  --> rust/apple-psi/src/apple_psi.rs:53:29
+   |
+53 | pub fn aes_encrypt_from_ris(S: RistrettoPoint, m: &[u8]) -> Vec<u8>{
+   |                             ^ help: convert the identifier to snake case (notice the capitalization): `s`
+   |
+   = note: `#[warn(non_snake_case)]` on by default
+
+warning: variable `S` should have a snake case name
+  --> rust/apple-psi/src/apple_psi.rs:72:29
+   |
+72 | pub fn aes_decrypt_from_ris(S: RistrettoPoint, c: Vec<u8>) -> Result<Vec<u8>, Error>{
+   |                             ^ help: convert the identifier to snake case (notice the capitalization): `s`
+
+warning: structure field `E1` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:103:5
+    |
+103 |     E1: APCEInnerEncryptResult,
+    |     ^^ help: convert the identifier to snake case: `e1`
+
+warning: structure field `E2` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:104:5
+    |
+104 |     E2: APCEInnerEncryptResult,
+    |     ^^ help: convert the identifier to snake case: `e2`
+
+warning: structure field `Q` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:109:5
+    |
+109 |     Q: RistrettoPoint,
+    |     ^ help: convert the identifier to snake case: `q`
+
+warning: variable `Q` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:114:16
+    |
+114 |     pub fn new(Q:RistrettoPoint, ct:Vec<u8>) -> Self{
+    |                ^ help: convert the identifier to snake case: `q`
+
+warning: structure field `P` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:124:5
+    |
+124 |     P: Vec<RistrettoPoint>,
+    |     ^ help: convert the identifier to snake case: `p`
+
+warning: variable `P` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:128:36
+    |
+128 |     pub fn new(pk: RistrettoPoint, P: Vec<RistrettoPoint>) -> Self{
+    |                                    ^ help: convert the identifier to snake case: `p`
+
+warning: variable `Q1` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:151:13
+    |
+151 |         let Q1 = (hm * beta1) + (RISTRETTO_BASEPOINT_POINT * gamma1);
+    |             ^^ help: convert the identifier to snake case: `q1`
+
+warning: variable `Q2` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:152:13
+    |
+152 |         let Q2 = (hm * beta2) + (RISTRETTO_BASEPOINT_POINT * gamma2);
+    |             ^^ help: convert the identifier to snake case: `q2`
+
+warning: variable `S1` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:154:13
+    |
+154 |         let S1 = (self.P[i1] * beta1) + (self.pk * gamma1);
+    |             ^^ help: convert the identifier to snake case (notice the capitalization): `s1`
+
+warning: variable `S2` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:155:13
+    |
+155 |         let S2 = (self.P[i2] * beta2) + (self.pk * gamma2);
+    |             ^^ help: convert the identifier to snake case (notice the capitalization): `s2`
+
+warning: variable `E1` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:162:13
+    |
+162 |         let E1 = APCEInnerEncryptResult::new(Q1, ct1);
+    |             ^^ help: convert the identifier to snake case: `e1`
+
+warning: variable `E2` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:163:13
+    |
+163 |         let E2 = APCEInnerEncryptResult::new(Q2, ct2);
+    |             ^^ help: convert the identifier to snake case: `e2`
+
+warning: structure field `T` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:183:9
+    |
+183 |     pub T: cuckoofilter::CuckooFilter<DefaultHasher>,
+    |         ^ help: convert the identifier to snake case: `t`
+
+warning: variable `T` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:212:13
+    |
+212 |         let T: CuckooFilter<DefaultHasher> = cuckoofilter::CuckooFilter::new();
+    |             ^ help: convert the identifier to snake case: `t`
+
+warning: variable `E1` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:235:13
+    |
+235 |         let E1 = ct.E1;
+    |             ^^ help: convert the identifier to snake case: `e1`
+
+warning: variable `E2` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:236:13
+    |
+236 |         let E2 = ct.E2;
+    |             ^^ help: convert the identifier to snake case: `e2`
+
+warning: variable `K_i` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:274:9
+    |
+274 |         K_i: RistrettoPoint,
+    |         ^^^ help: convert the identifier to snake case (notice the capitalization): `k_i`
+
+warning: variable `HT` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:275:9
+    |
+275 |         HT: RistrettoPoint,
+    |         ^^ help: convert the identifier to snake case: `ht`
+
+warning: variable `K` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:305:17
+    |
+305 |         let mut K: Vec<RistrettoPoint> = vec![];
+    |                 ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Pi` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:306:17
+    |
+306 |         let mut Pi: Vec<Vec<u8>> = vec![];
+    |                 ^^ help: convert the identifier to snake case: `pi`
+
+warning: variable `K` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:349:93
+    |
+349 |     pub fn cert(&mut self, input: Vec<[u8;INPUT_LENGTH]>, randomness: [u8; RANDOMNESS_LEN], K: Vec<RistrettoPoint>, Pi: Vec<Vec<u8>>) -> Result<Vec<EcdsaSig>, CertError>{
+    |                                                                                             ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Pi` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:349:117
+    |
+349 |     pub fn cert(&mut self, input: Vec<[u8;INPUT_LENGTH]>, randomness: [u8; RANDOMNESS_LEN], K: Vec<RistrettoPoint>, Pi: Vec<Vec<u8>>) -> Result<Vec<EcdsaSig>, CertError>{
+    |                                                                                                                     ^^ help: convert the identifier to snake case: `pi`
+
+warning: variable `Sigma` should have a snake case name
+   --> rust/apple-psi/src/apple_psi.rs:365:17
+    |
+365 |         let mut Sigma: Vec<EcdsaSig> = vec![];
+    |                 ^^^^^ help: convert the identifier to snake case (notice the capitalization): `sigma`
+
+warning: unused `Result` that must be used
+   --> rust/apple-psi/src/apple_psi.rs:427:13
+    |
+427 |             self.T.test_and_add_u8(&i);
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this `Result` may be an `Err` variant, which should be handled
+    = note: `#[warn(unused_must_use)]` on by default
+help: use `let _ = ...` to ignore the resulting value
+    |
+427 |             let _ = self.T.test_and_add_u8(&i);
+    |             +++++++
+
+warning: unused import: `error::Error`
+ --> rust/shamir/src/shamir.rs:1:11
+  |
+1 | use std::{error::Error, io::Read};
+  |           ^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `clone`
+ --> rust/shamir/src/shamir.rs:2:11
+  |
+2 | use std::{clone, fmt};
+  |           ^^^^^
+
+warning: unused import: `curve25519_dalek::scalar`
+ --> rust/shamir/src/shamir.rs:3:5
+  |
+3 | use curve25519_dalek::scalar;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `constants::RISTRETTO_BASEPOINT_POINT`
+ --> rust/shamir/src/shamir.rs:4:24
+  |
+4 | use curve25519_dalek::{constants::RISTRETTO_BASEPOINT_POINT, scalar::Scalar, RistrettoPoint};
+  |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `ShoSha256`
+ --> rust/shamir/src/shamir.rs:5:37
+  |
+5 | use poksho::{ShoApi, ShoHmacSha256, ShoSha256};
+  |                                     ^^^^^^^^^
+
+warning: unused imports: `Deserialize` and `Serialize`
+ --> rust/shamir/src/shamir.rs:6:13
+  |
+6 | use serde::{Deserialize, Serialize};
+  |             ^^^^^^^^^^^  ^^^^^^^^^
+
+warning: unused imports: `Duration` and `Instant`
+  --> rust/shamir/src/shamir.rs:10:17
+   |
+10 | use std::time::{Instant, Duration};
+   |                 ^^^^^^^  ^^^^^^^^
+
+warning: unused import: `io::Read`
+ --> rust/shamir/src/shamir.rs:1:25
+  |
+1 | use std::{error::Error, io::Read};
+  |                         ^^^^^^^^
+
+warning: unused variable: `r`
+  --> rust/shamir/src/shamir.rs:37:9
+   |
+37 |     let r = Scalar::from_hash(r);
+   |         ^ help: if this is intentional, prefix it with an underscore: `_r`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: variable does not need to be mutable
+   --> rust/shamir/src/shamir.rs:118:13
+    |
+118 |         let mut hasher = Sha256::new().chain(message);
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+   --> rust/shamir/src/shamir.rs:135:13
+    |
+135 |         let mut hasher = Sha256::new().chain(message.to_bytes());
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: structure field `Pi_ss` should have a snake case name
+  --> rust/shamir/src/shamir.rs:18:9
+   |
+18 |     pub Pi_ss: Vec<u8>,
+   |         ^^^^^ help: convert the identifier to snake case: `pi_ss`
+   |
+   = note: `#[warn(non_snake_case)]` on by default
+
+warning: function `RLSS_share` should have a snake case name
+  --> rust/shamir/src/shamir.rs:34:8
+   |
+34 | pub fn RLSS_share(S: &[u8], threshold: usize, k_u: Scalar, randomness:[u8;RANDOMNESS_LEN]) -> (Scalar, Scalar, Share) {
+   |        ^^^^^^^^^^ help: convert the identifier to snake case: `rlss_share`
+
+warning: variable `S` should have a snake case name
+  --> rust/shamir/src/shamir.rs:34:19
+   |
+34 | pub fn RLSS_share(S: &[u8], threshold: usize, k_u: Scalar, randomness:[u8;RANDOMNESS_LEN]) -> (Scalar, Scalar, Share) {
+   |                   ^ help: convert the identifier to snake case (notice the capitalization): `s`
+
+warning: variable `H_l_s` should have a snake case name
+  --> rust/shamir/src/shamir.rs:46:9
+   |
+46 |     let H_l_s = Sha512::new().chain(l_s.to_bytes());
+   |         ^^^^^ help: convert the identifier to snake case: `h_l_s`
+
+warning: variable `H_l_s` should have a snake case name
+  --> rust/shamir/src/shamir.rs:47:9
+   |
+47 |     let H_l_s = RistrettoPoint::from_hash(H_l_s);
+   |         ^^^^^ help: convert the identifier to snake case: `h_l_s`
+
+warning: variable `Pi_ss` should have a snake case name
+  --> rust/shamir/src/shamir.rs:61:9
+   |
+61 |     let Pi_ss = st.prove(&scalar_args, &point_args, authenticated_message, &randomness).unwrap();
+   |         ^^^^^ help: convert the identifier to snake case: `pi_ss`
+
+warning: function `RLSS_Dedup` should have a snake case name
+  --> rust/shamir/src/shamir.rs:78:8
+   |
+78 | pub fn RLSS_Dedup(l_s: Scalar, shares: &Vec<Share>) -> Vec<(Scalar, Scalar)>{
+   |        ^^^^^^^^^^ help: convert the identifier to snake case: `rlss_dedup`
+
+warning: variable `L_s` should have a snake case name
+  --> rust/shamir/src/shamir.rs:79:13
+   |
+79 |     let mut L_s: Vec<(Scalar,Scalar)> = Vec::new();
+   |             ^^^ help: convert the identifier to snake case: `l_s`
+
+warning: variable `L_t` should have a snake case name
+  --> rust/shamir/src/shamir.rs:80:13
+   |
+80 |     let mut L_t:Vec<RistrettoPoint> = Vec::new();
+   |             ^^^ help: convert the identifier to snake case: `l_t`
+
+warning: variable `H_l_s` should have a snake case name
+  --> rust/shamir/src/shamir.rs:86:13
+   |
+86 |         let H_l_s = Sha512::new().chain(l_s.to_bytes());
+   |             ^^^^^ help: convert the identifier to snake case: `h_l_s`
+
+warning: variable `H_l_s` should have a snake case name
+  --> rust/shamir/src/shamir.rs:87:13
+   |
+87 |         let H_l_s = RistrettoPoint::from_hash(H_l_s);
+   |             ^^^^^ help: convert the identifier to snake case: `h_l_s`
+
+warning: function `RLSS_Aggregate` should have a snake case name
+   --> rust/shamir/src/shamir.rs:101:8
+    |
+101 | pub fn RLSS_Aggregate(shares: &Vec<(Scalar, Scalar)>, threshold: usize) -> Result<Scalar, AggregationError>{
+    |        ^^^^^^^^^^^^^^ help: convert the identifier to snake case: `rlss_aggregate`
+
+warning: unused import: `curve25519_dalek::traits::MultiscalarMul`
+ --> rust/elgamal/src/encryption.rs:5:5
+  |
+5 | use curve25519_dalek::traits::MultiscalarMul;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `Sha256`
+ --> rust/elgamal/src/encryption.rs:8:12
+  |
+8 | use sha2::{Sha256, Digest};
+  |            ^^^^^^
+
+warning: type `cipher_text` should have an upper camel case name
+  --> rust/elgamal/src/encryption.rs:45:12
+   |
+45 | pub struct cipher_text{
+   |            ^^^^^^^^^^^ help: convert the identifier to upper camel case: `CipherText`
+   |
+   = note: `#[warn(non_camel_case_types)]` on by default
+
+warning: type `elgamal_key_pair` should have an upper camel case name
+  --> rust/elgamal/src/encryption.rs:51:12
+   |
+51 | pub struct elgamal_key_pair{
+   |            ^^^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `ElgamalKeyPair`
+
+warning: type `elgamal_public_key` should have an upper camel case name
+  --> rust/elgamal/src/encryption.rs:78:75
+   |
+78 | #[derive(Serialize, Deserialize, Clone, PartialDefault, Debug)]pub struct elgamal_public_key{
+   |                                                                           ^^^^^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `ElgamalPublicKey`
+
+warning: type `elgamal_private_key` should have an upper camel case name
+  --> rust/elgamal/src/encryption.rs:85:12
+   |
+85 | pub struct elgamal_private_key{
+   |            ^^^^^^^^^^^^^^^^^^^ help: convert the identifier to upper camel case: `ElgamalPrivateKey`
+
+warning: use of deprecated constant `curve25519_dalek::constants::BASEPOINT_ORDER`: Should not have been in public API
+ --> rust/elgamal/src/encryption.rs:2:34
+  |
+2 | use curve25519_dalek::constants::BASEPOINT_ORDER;
+  |                                  ^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated constant `curve25519_dalek::constants::BASEPOINT_ORDER`: Should not have been in public API
+  --> rust/elgamal/src/encryption.rs:26:17
+   |
+26 |         let p = BASEPOINT_ORDER;
+   |                 ^^^^^^^^^^^^^^^
+
+warning: unused import: `Digest`
+ --> rust/elgamal/src/encryption.rs:8:20
+  |
+8 | use sha2::{Sha256, Digest};
+  |                    ^^^^^^
+
+warning: unused variable: `sho`
+  --> rust/elgamal/src/encryption.rs:25:17
+   |
+25 |         let mut sho = ShoSha256::new(b"Signal_ZKCredential_ConstantSystemParams_generate_20230410");
+   |                 ^^^ help: if this is intentional, prefix it with an underscore: `_sho`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: variable does not need to be mutable
+  --> rust/elgamal/src/encryption.rs:25:13
+   |
+25 |         let mut sho = ShoSha256::new(b"Signal_ZKCredential_ConstantSystemParams_generate_20230410");
+   |             ----^^^
+   |             |
+   |             help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+warning: unused variable: `system`
+  --> rust/elgamal/src/encryption.rs:62:13
+   |
+62 |         let system = *SYSTEM_PARAMS;
+   |             ^^^^^^ help: if this is intentional, prefix it with an underscore: `_system`
+
+warning: structure field `E1` should have a snake case name
+  --> rust/elgamal/src/encryption.rs:46:9
+   |
+46 |     pub E1: RistrettoPoint,
+   |         ^^ help: convert the identifier to snake case: `e1`
+   |
+   = note: `#[warn(non_snake_case)]` on by default
+
+warning: structure field `E2` should have a snake case name
+  --> rust/elgamal/src/encryption.rs:47:9
+   |
+47 |     pub E2: RistrettoPoint,
+   |         ^^ help: convert the identifier to snake case: `e2`
+
+warning: variable `E1` should have a snake case name
+   --> rust/elgamal/src/encryption.rs:108:13
+    |
+108 |         let E1 = system.g * r;
+    |             ^^ help: convert the identifier to snake case: `e1`
+
+warning: variable `E2` should have a snake case name
+   --> rust/elgamal/src/encryption.rs:110:13
+    |
+110 |         let E2 = (self.pk.pk1 * r + self.pk.pk2 * r) + message;
+    |             ^^ help: convert the identifier to snake case: `e2`
+
+warning: variable `E1` should have a snake case name
+   --> rust/elgamal/src/encryption.rs:120:13
+    |
+120 |         let E1 = system.g * r;
+    |             ^^ help: convert the identifier to snake case: `e1`
+
+warning: variable `E2` should have a snake case name
+   --> rust/elgamal/src/encryption.rs:122:13
+    |
+122 |         let E2 = (self.pk.pk1 * r + self.pk.pk2 * r) + message;
+    |             ^^ help: convert the identifier to snake case: `e2`
+
+warning: variable `E1` should have a snake case name
+   --> rust/elgamal/src/encryption.rs:144:13
+    |
+144 |         let E1 = ct.E1;
+    |             ^^ help: convert the identifier to snake case: `e1`
+
+warning: variable `E2` should have a snake case name
+   --> rust/elgamal/src/encryption.rs:146:13
+    |
+146 |         let E2 = (ct.E2) - (ct.E1 * self.sk);
+    |             ^^ help: convert the identifier to snake case: `e2`
+
+warning: `apple-psi` (lib) generated 39 warnings (run `cargo fix --lib -p apple-psi` to apply 9 suggestions)
+warning: `shamir` (lib) generated 23 warnings (run `cargo fix --lib -p shamir` to apply 9 suggestions)
+warning: `elgamal` (lib) generated 20 warnings (run `cargo fix --lib -p elgamal` to apply 3 suggestions)
+warning: unused import: `sha`
+ --> rust/trace-ruler/src/lib.rs:5:31
+  |
+5 | use boring::{ecdsa::EcdsaSig, sha};
+  |                               ^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `CredentialKeyPair`
+ --> rust/trace-ruler/src/lib.rs:9:45
+  |
+9 | use zkcredential::credentials::{Credential, CredentialKeyPair};
+  |                                             ^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `elgamal_key_pair` and `elgamal_private_key`
+  --> rust/trace-ruler/src/lib.rs:10:40
+   |
+10 | use elgamal::encryption::{cipher_text, elgamal_key_pair, elgamal_private_key, elgamal_public_key, ElGamalDecryption, ElGamalEncryption};
+   |                                        ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `ShoSha256`
+  --> rust/trace-ruler/src/lib.rs:12:37
+   |
+12 | use poksho::{ShoApi, ShoHmacSha256, ShoSha256};
+   |                                     ^^^^^^^^^
+
+warning: unused imports: `Aggregation` and `SecretShare`
+  --> rust/trace-ruler/src/lib.rs:14:22
+   |
+14 | use shamir::shamir::{Aggregation, RLSS_Aggregate, RLSS_Dedup, RLSS_share, SecretShare, Share};
+   |                      ^^^^^^^^^^^                                          ^^^^^^^^^^^
+
+warning: unused imports: `EcGroup`, `EcKey`, `EcPointRef`, `EcPoint`, and `ssl::select_next_proto`
+  --> rust/trace-ruler/src/lib.rs:17:19
+   |
+17 | use boring::{ec::{EcGroup, EcKey, EcKeyRef, EcPoint, EcPointRef}, ssl::select_next_proto};
+   |                   ^^^^^^^  ^^^^^            ^^^^^^^  ^^^^^^^^^^   ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `PKey` and `Private`
+  --> rust/trace-ruler/src/lib.rs:18:20
+   |
+18 | use boring::pkey::{PKey, Private, Public};
+   |                    ^^^^  ^^^^^^^
+
+warning: unused import: `impls::next_u64_via_u32`
+  --> rust/trace-ruler/src/lib.rs:19:17
+   |
+19 | use rand_core::{impls::next_u64_via_u32, OsRng};
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `AeadCore`
+  --> rust/trace-ruler/src/lib.rs:21:18
+   |
+21 |     aead::{Aead, AeadCore, KeyInit},
+   |                  ^^^^^^^^
+
+warning: unused imports: `INPUT_LENGTH`, `RANDOMNESS_LEN`, and `server`
+ --> rust/trace-ruler/src/Moderator.rs:1:29
+  |
+1 | use apple_psi::{apple_psi::{server, INPUT_LENGTH}, RANDOMNESS_LEN};
+  |                             ^^^^^^  ^^^^^^^^^^^^   ^^^^^^^^^^^^^^
+
+warning: unused imports: `INPUT_LENGTH`, `RANDOMNESS_LEN`, and `server`
+ --> rust/trace-ruler/src/Regulator.rs:1:29
+  |
+1 | use apple_psi::{apple_psi::{server, INPUT_LENGTH}, RANDOMNESS_LEN};
+  |                             ^^^^^^  ^^^^^^^^^^^^   ^^^^^^^^^^^^^^
+
+warning: unused import: `apple_psi::INPUT_LENGTH`
+ --> rust/trace-ruler/src/User.rs:1:17
+  |
+1 | use apple_psi::{apple_psi::INPUT_LENGTH, RANDOMNESS_LEN};
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Sha256`
+ --> rust/trace-ruler/src/User.rs:4:36
+  |
+4 | use sha2::{digest::Update, Digest, Sha256, Sha512};
+  |                                    ^^^^^^
+
+warning: unused import: `std::fmt`
+ --> rust/trace-ruler/src/User.rs:6:5
+  |
+6 | use std::fmt;
+  |     ^^^^^^^^
+
+warning: unused import: `sync::Arc`
+ --> rust/trace-ruler/src/Platform.rs:1:33
+  |
+1 | use std::{collections::HashMap, sync::Arc};
+  |                                 ^^^^^^^^^
+
+warning: unused import: `RistrettoPoint`
+ --> rust/trace-ruler/src/Platform.rs:5:40
+  |
+5 | use curve25519_dalek::{scalar::Scalar, RistrettoPoint};
+  |                                        ^^^^^^^^^^^^^^
+
+warning: unused import: `hex_literal::hex`
+ --> rust/trace-ruler/src/aes.rs:2:5
+  |
+2 | use hex_literal::hex;
+  |     ^^^^^^^^^^^^^^^^
+
+warning: unused import: `boring::sha::Sha512`
+ --> rust/trace-ruler/src/pke.rs:1:5
+  |
+1 | use boring::sha::Sha512;
+  |     ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `ChaCha20Poly1305`
+ --> rust/trace-ruler/src/pke.rs:3:21
+  |
+3 |     aead::{AeadTag, ChaCha20Poly1305, AesGcm256},
+  |                     ^^^^^^^^^^^^^^^^
+
+warning: type `token` should have an upper camel case name
+  --> rust/trace-ruler/src/lib.rs:70:12
+   |
+70 | pub struct token{
+   |            ^^^^^ help: convert the identifier to upper camel case: `Token`
+   |
+   = note: `#[warn(non_camel_case_types)]` on by default
+
+warning: type `tmd` should have an upper camel case name
+  --> rust/trace-ruler/src/lib.rs:88:12
+   |
+88 | pub struct tmd{
+   |            ^^^ help: convert the identifier to upper camel case: `Tmd`
+
+warning: type `tmd_prime` should have an upper camel case name
+  --> rust/trace-ruler/src/lib.rs:96:12
+   |
+96 | pub struct tmd_prime{
+   |            ^^^^^^^^^ help: convert the identifier to upper camel case: `TmdPrime`
+
+warning: type `Report_Prime` should have an upper camel case name
+   --> rust/trace-ruler/src/lib.rs:112:12
+    |
+112 | pub struct Report_Prime{
+    |            ^^^^^^^^^^^^ help: convert the identifier to upper camel case: `ReportPrime`
+
+warning: variable does not need to be mutable
+  --> rust/trace-ruler/src/User.rs:25:13
+   |
+25 |         let mut hasher = Sha512::new().chain(uid.to_le_bytes());
+   |             ----^^^^^^
+   |             |
+   |             help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+warning: unused variable: `buf`
+  --> rust/trace-ruler/src/aes.rs:23:13
+   |
+23 |     let mut buf = [0u8; 128];
+   |             ^^^ help: if this is intentional, prefix it with an underscore: `_buf`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: variable does not need to be mutable
+  --> rust/trace-ruler/src/aes.rs:23:9
+   |
+23 |     let mut buf = [0u8; 128];
+   |         ----^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> rust/trace-ruler/src/pke.rs:27:9
+   |
+27 |     let mut hasher = Sha256::new().chain(regulator.sk.as_bytes());
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/src/lib.rs:133:9
+    |
+133 |     let mut hasher = Sha256::new().chain(shared_key.compress().as_bytes());
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/src/lib.rs:219:9
+    |
+219 |     let mut hasher = Sha512::new().chain(msg);
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `tmd_clone`
+   --> rust/trace-ruler/src/lib.rs:293:9
+    |
+293 |     let tmd_clone = tmd.clone();
+    |         ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_tmd_clone`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/src/lib.rs:299:9
+    |
+299 |     let mut hasher = Sha512::new().chain(msg);
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `ct_m`
+   --> rust/trace-ruler/src/lib.rs:334:9
+    |
+334 |     let ct_m = pke::encrypt_msg(msg, associated_data, hpke_pk);
+    |         ^^^^ help: if this is intentional, prefix it with an underscore: `_ct_m`
+
+warning: unused variable: `serializer`
+   --> rust/trace-ruler/src/lib.rs:344:13
+    |
+344 |     let mut serializer = serde_json::Serializer::new(&mut buffer);
+    |             ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_serializer`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/src/lib.rs:344:9
+    |
+344 |     let mut serializer = serde_json::Serializer::new(&mut buffer);
+    |         ----^^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `Pi_rpt`
+   --> rust/trace-ruler/src/lib.rs:383:9
+    |
+383 |     let Pi_rpt = rpt.Pi_rpt;
+    |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_Pi_rpt`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/src/lib.rs:433:9
+    |
+433 |     let mut hasher = Sha512::new().chain(msg.clone());
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `m`
+   --> rust/trace-ruler/src/lib.rs:505:19
+    |
+505 | pub fn trace_test(m: [u8; INPUT_LENGTH], tmd: &tmd, tmd_p: &tmd_prime,  platform: &Platform::Platform, pk_mod: &RistrettoPoint) -> Option<u64>{
+    |                   ^ help: if this is intentional, prefix it with an underscore: `_m`
+
+warning: unused variable: `tmd`
+   --> rust/trace-ruler/src/lib.rs:505:42
+    |
+505 | pub fn trace_test(m: [u8; INPUT_LENGTH], tmd: &tmd, tmd_p: &tmd_prime,  platform: &Platform::Platform, pk_mod: &RistrettoPoint) -> Option<u64>{
+    |                                          ^^^ help: if this is intentional, prefix it with an underscore: `_tmd`
+
+warning: unused variable: `tmd_p`
+   --> rust/trace-ruler/src/lib.rs:505:53
+    |
+505 | pub fn trace_test(m: [u8; INPUT_LENGTH], tmd: &tmd, tmd_p: &tmd_prime,  platform: &Platform::Platform, pk_mod: &RistrettoPoint) -> Option<u64>{
+    |                                                     ^^^^^ help: if this is intentional, prefix it with an underscore: `_tmd_p`
+
+warning: unused variable: `platform`
+   --> rust/trace-ruler/src/lib.rs:505:73
+    |
+505 | pub fn trace_test(m: [u8; INPUT_LENGTH], tmd: &tmd, tmd_p: &tmd_prime,  platform: &Platform::Platform, pk_mod: &RistrettoPoint) -> Option<u64>{
+    |                                                                         ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_platform`
+
+warning: unused variable: `pk_mod`
+   --> rust/trace-ruler/src/lib.rs:505:104
+    |
+505 | pub fn trace_test(m: [u8; INPUT_LENGTH], tmd: &tmd, tmd_p: &tmd_prime,  platform: &Platform::Platform, pk_mod: &RistrettoPoint) -> Option<u64>{
+    |                                                                                                        ^^^^^^ help: if this is intentional, prefix it with an underscore: `_pk_mod`
+
+warning: function `server_init` is never used
+  --> rust/trace-ruler/src/pke.rs:21:4
+   |
+21 | fn server_init() -> (<Kem as KemTrait>::PrivateKey, <Kem as KemTrait>::PublicKey) {
+   |    ^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `main` is never used
+  --> rust/trace-ruler/src/pke.rs:94:4
+   |
+94 | fn main() {
+   |    ^^^^
+
+warning: module `Moderator` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:28:9
+   |
+28 | pub mod Moderator;
+   |         ^^^^^^^^^ help: convert the identifier to snake case: `moderator`
+   |
+   = note: `#[warn(non_snake_case)]` on by default
+
+warning: module `Regulator` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:29:9
+   |
+29 | pub mod Regulator;
+   |         ^^^^^^^^^ help: convert the identifier to snake case: `regulator`
+
+warning: module `User` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:30:9
+   |
+30 | pub mod User;
+   |         ^^^^ help: convert the identifier to snake case (notice the capitalization): `user`
+
+warning: module `Platform` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:31:9
+   |
+31 | pub mod Platform;
+   |         ^^^^^^^^ help: convert the identifier to snake case: `platform`
+
+warning: structure field `C_m` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:72:5
+   |
+72 |     C_m: RistrettoPoint,
+   |     ^^^ help: convert the identifier to snake case (notice the capitalization): `c_m`
+
+warning: structure field `C_U_Prime` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:73:5
+   |
+73 |     C_U_Prime: RistrettoPoint,
+   |     ^^^^^^^^^ help: convert the identifier to snake case: `c_u_prime`
+
+warning: variable `C_m_bytes` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:80:13
+   |
+80 |         let C_m_bytes: [u8; 32] = self.C_m.compress().to_bytes();
+   |             ^^^^^^^^^ help: convert the identifier to snake case (notice the capitalization): `c_m_bytes`
+
+warning: variable `C_U_Prime_bytes` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:81:13
+   |
+81 |         let C_U_Prime_bytes: [u8; 32] = self.C_U_Prime.compress().to_bytes();
+   |             ^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `c_u_prime_bytes`
+
+warning: structure field `Pi_send` should have a snake case name
+  --> rust/trace-ruler/src/lib.rs:92:9
+   |
+92 |     pub Pi_send: Vec<u8>,
+   |         ^^^^^^^ help: convert the identifier to snake case: `pi_send`
+
+warning: structure field `Pi_rpt` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:104:5
+    |
+104 |     Pi_rpt: Vec<u8>,
+    |     ^^^^^^ help: convert the identifier to snake case: `pi_rpt`
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:169:10
+    |
+169 |     let (K, Pi) = regulator.setup(hashed_input.clone(), randomness);
+    |          ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Pi` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:169:13
+    |
+169 |     let (K, Pi) = regulator.setup(hashed_input.clone(), randomness);
+    |             ^^ help: convert the identifier to snake case: `pi`
+
+warning: variable `Sign` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:171:9
+    |
+171 |     let Sign = moderator.cert(hashed_input.clone(), randomness, K.clone(), Pi).unwrap();
+    |         ^^^^ help: convert the identifier to snake case (notice the capitalization): `sign`
+
+warning: variable `C_m` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:207:9
+    |
+207 |     let C_m = presentation_proof.C_m;
+    |         ^^^ help: convert the identifier to snake case (notice the capitalization): `c_m`
+
+warning: variable `C_U_Prime` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:208:9
+    |
+208 |     let C_U_Prime = presentation_proof.C_U_Prime;
+    |         ^^^^^^^^^ help: convert the identifier to snake case: `c_u_prime`
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:332:132
+    |
+332 | pub fn report(msg: &[u8], tmd: &tmd, k_u: Scalar, token_u: &token, regulator: &mut server, hpke_pk: &<Kem as KemTrait>::PublicKey, K:&Vec<RistrettoPoint>, randomness: &[u8;RANDOMNESS_LEN], t: usize) -> Report{
+    |                                                                                                                                    ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Pi_rpt` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:366:9
+    |
+366 |     let Pi_rpt = share.Pi_ss.clone();
+    |         ^^^^^^ help: convert the identifier to snake case: `pi_rpt`
+
+warning: variable `Pi_rpt` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:383:9
+    |
+383 |     let Pi_rpt = rpt.Pi_rpt;
+    |         ^^^^^^ help: convert the identifier to snake case: `pi_rpt`
+
+warning: variable `H_l_s` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:386:9
+    |
+386 |     let H_l_s = Sha512::new().chain(rpt.l_s.to_bytes());
+    |         ^^^^^ help: convert the identifier to snake case: `h_l_s`
+
+warning: variable `H_l_s` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:387:9
+    |
+387 |     let H_l_s = RistrettoPoint::from_hash(H_l_s);
+    |         ^^^^^ help: convert the identifier to snake case: `h_l_s`
+
+warning: variable `L_s` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:406:9
+    |
+406 |     let L_s = dedup(&rpt_primes);
+    |         ^^^ help: convert the identifier to snake case: `l_s`
+
+warning: unused imports: `clone` and `ops::Index`
+   --> rust/trace-ruler/src/lib.rs:526:15
+    |
+526 |     use std::{clone, ops::Index};
+    |               ^^^^^  ^^^^^^^^^^
+
+warning: unused import: `rand::RngCore`
+   --> rust/trace-ruler/src/lib.rs:528:9
+    |
+528 |     use rand::RngCore;
+    |         ^^^^^^^^^^^^^
+
+warning: unused import: `Deserialize`
+   --> rust/trace-ruler/src/lib.rs:529:17
+    |
+529 |     use serde::{Deserialize, Serialize};
+    |                 ^^^^^^^^^^^
+
+warning: unused variable: `K`
+   --> rust/trace-ruler/src/lib.rs:542:14
+    |
+542 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input);
+    |              ^ help: if this is intentional, prefix it with an underscore: `_K`
+
+warning: unused variable: `Sign`
+   --> rust/trace-ruler/src/lib.rs:542:17
+    |
+542 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input);
+    |                 ^^^^ help: if this is intentional, prefix it with an underscore: `_Sign`
+
+warning: unused variable: `regulator`
+   --> rust/trace-ruler/src/lib.rs:561:17
+    |
+561 |         let mut regulator = server::new(b"regulator and moderator", &randomness);
+    |                 ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_regulator`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/src/lib.rs:561:13
+    |
+561 |         let mut regulator = server::new(b"regulator and moderator", &randomness);
+    |             ----^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/src/lib.rs:562:13
+    |
+562 |         let mut moderator = server::new(b"regulator and moderator", &randomness);
+    |             ----^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `Sign`
+   --> rust/trace-ruler/src/lib.rs:599:17
+    |
+599 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |                 ^^^^ help: if this is intentional, prefix it with an underscore: `_Sign`
+
+warning: unused variable: `k_u1`
+   --> rust/trace-ruler/src/lib.rs:600:14
+    |
+600 |         let (k_u1, cred1) = user_reg(&mut user1, &mut platform);
+    |              ^^^^ help: if this is intentional, prefix it with an underscore: `_k_u1`
+
+warning: unused variable: `cred1`
+   --> rust/trace-ruler/src/lib.rs:600:20
+    |
+600 |         let (k_u1, cred1) = user_reg(&mut user1, &mut platform);
+    |                    ^^^^^ help: if this is intentional, prefix it with an underscore: `_cred1`
+
+warning: unused variable: `k_u2`
+   --> rust/trace-ruler/src/lib.rs:601:14
+    |
+601 |         let (k_u2, cred2) = user_reg(&mut user2, &mut platform);
+    |              ^^^^ help: if this is intentional, prefix it with an underscore: `_k_u2`
+
+warning: unused variable: `cred2`
+   --> rust/trace-ruler/src/lib.rs:601:20
+    |
+601 |         let (k_u2, cred2) = user_reg(&mut user2, &mut platform);
+    |                    ^^^^^ help: if this is intentional, prefix it with an underscore: `_cred2`
+
+warning: unused variable: `k_u3`
+   --> rust/trace-ruler/src/lib.rs:602:14
+    |
+602 |         let (k_u3, cred3) = user_reg(&mut user3, &mut platform);
+    |              ^^^^ help: if this is intentional, prefix it with an underscore: `_k_u3`
+
+warning: unused variable: `cred3`
+   --> rust/trace-ruler/src/lib.rs:602:20
+    |
+602 |         let (k_u3, cred3) = user_reg(&mut user3, &mut platform);
+    |                    ^^^^^ help: if this is intentional, prefix it with an underscore: `_cred3`
+
+warning: unused variable: `tmd_prime`
+   --> rust/trace-ruler/src/lib.rs:627:45
+    |
+627 |             Some(InspectResult::MsgTmd(msg, tmd_prime)) => {
+    |                                             ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_tmd_prime`
+
+warning: unused variable: `K`
+   --> rust/trace-ruler/src/lib.rs:649:14
+    |
+649 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |              ^ help: if this is intentional, prefix it with an underscore: `_K`
+
+warning: unused variable: `Sign`
+   --> rust/trace-ruler/src/lib.rs:649:17
+    |
+649 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |                 ^^^^ help: if this is intentional, prefix it with an underscore: `_Sign`
+
+warning: unused variable: `k_u1`
+   --> rust/trace-ruler/src/lib.rs:650:14
+    |
+650 |         let (k_u1, cred1) = user_reg(&mut user1, &mut platform);
+    |              ^^^^ help: if this is intentional, prefix it with an underscore: `_k_u1`
+
+warning: unused variable: `cred1`
+   --> rust/trace-ruler/src/lib.rs:650:20
+    |
+650 |         let (k_u1, cred1) = user_reg(&mut user1, &mut platform);
+    |                    ^^^^^ help: if this is intentional, prefix it with an underscore: `_cred1`
+
+warning: unused variable: `k_u2`
+   --> rust/trace-ruler/src/lib.rs:651:14
+    |
+651 |         let (k_u2, cred2) = user_reg(&mut user2, &mut platform);
+    |              ^^^^ help: if this is intentional, prefix it with an underscore: `_k_u2`
+
+warning: unused variable: `cred2`
+   --> rust/trace-ruler/src/lib.rs:651:20
+    |
+651 |         let (k_u2, cred2) = user_reg(&mut user2, &mut platform);
+    |                    ^^^^^ help: if this is intentional, prefix it with an underscore: `_cred2`
+
+warning: unused variable: `k_u3`
+   --> rust/trace-ruler/src/lib.rs:652:14
+    |
+652 |         let (k_u3, cred3) = user_reg(&mut user3, &mut platform);
+    |              ^^^^ help: if this is intentional, prefix it with an underscore: `_k_u3`
+
+warning: unused variable: `cred3`
+   --> rust/trace-ruler/src/lib.rs:652:20
+    |
+652 |         let (k_u3, cred3) = user_reg(&mut user3, &mut platform);
+    |                    ^^^^^ help: if this is intentional, prefix it with an underscore: `_cred3`
+
+warning: unused variable: `token2`
+   --> rust/trace-ruler/src/lib.rs:654:13
+    |
+654 |         let token2 = tk_gen(&user2.clone(), &platform.clone());
+    |             ^^^^^^ help: if this is intentional, prefix it with an underscore: `_token2`
+
+warning: unused variable: `token3`
+   --> rust/trace-ruler/src/lib.rs:655:13
+    |
+655 |         let token3 = tk_gen(&user3.clone(), &platform.clone());
+    |             ^^^^^^ help: if this is intentional, prefix it with an underscore: `_token3`
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:542:14
+    |
+542 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input);
+    |              ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Sign` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:542:17
+    |
+542 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input);
+    |                 ^^^^ help: convert the identifier to snake case (notice the capitalization): `sign`
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:599:14
+    |
+599 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |              ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Sign` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:599:17
+    |
+599 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |                 ^^^^ help: convert the identifier to snake case (notice the capitalization): `sign`
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:649:14
+    |
+649 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |              ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Sign` should have a snake case name
+   --> rust/trace-ruler/src/lib.rs:649:17
+    |
+649 |         let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |                 ^^^^ help: convert the identifier to snake case (notice the capitalization): `sign`
+
+warning: `trace-ruler` (lib) generated 64 warnings (run `cargo fix --lib -p trace-ruler` to apply 27 suggestions)
+warning: `trace-ruler` (lib test) generated 96 warnings (64 duplicates) (run `cargo fix --lib -p trace-ruler --tests` to apply 5 suggestions)
+   Compiling trace-ruler v0.1.0 (/home/jz/work/trace-ruler-from-libsignal/libsignal/rust/trace-ruler)
+warning: unused import: `bincode::de`
+ --> rust/trace-ruler/benches/bench.rs:1:5
+  |
+1 | use bincode::de;
+  |     ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `BatchSize`
+ --> rust/trace-ruler/benches/bench.rs:2:50
+  |
+2 | use criterion::{criterion_group, criterion_main, BatchSize, BenchmarkId, Criterion, black_box};
+  |                                                  ^^^^^^^^^
+
+warning: unused import: `scalar`
+ --> rust/trace-ruler/benches/bench.rs:4:24
+  |
+4 | use curve25519_dalek::{scalar, RistrettoPoint, Scalar};
+  |                        ^^^^^^
+
+warning: unused import: `trace_test`
+ --> rust/trace-ruler/benches/bench.rs:7:24
+  |
+7 | use trace_ruler::{pke, trace_test};
+  |                        ^^^^^^^^^^
+
+warning: variable does not need to be mutable
+  --> rust/trace-ruler/benches/bench.rs:75:9
+   |
+75 |     let mut platform = Platform::new(randomness);
+   |         ----^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+  --> rust/trace-ruler/benches/bench.rs:76:9
+   |
+76 |     let mut moderator = server::new(b"regulator and moderator", &randomness);
+   |         ----^^^^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> rust/trace-ruler/benches/bench.rs:77:9
+   |
+77 |     let mut user = User::new();
+   |         ----^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> rust/trace-ruler/benches/bench.rs:83:9
+   |
+83 |     let mut hasher = Sha512::new().chain(msg.clone());
+   |         ----^^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:165:17
+    |
+165 |             let mut user = black_box(&mut user);
+    |                 ----^^^^
+    |                 |
+    |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:166:17
+    |
+166 |             let mut platform = black_box(&mut platform);
+    |                 ----^^^^^^^^
+    |                 |
+    |                 help: remove this `mut`
+
+warning: unused variable: `regulator`
+   --> rust/trace-ruler/benches/bench.rs:180:13
+    |
+180 |     let mut regulator = server::new(b"regulator and moderator", &randomness);
+    |             ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_regulator`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `dec`
+   --> rust/trace-ruler/benches/bench.rs:185:9
+    |
+185 |     let dec = ElGamalDecryption::new(platform.s.sk);
+    |         ^^^ help: if this is intentional, prefix it with an underscore: `_dec`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:177:9
+    |
+177 |     let mut user = User::new();
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:178:9
+    |
+178 |     let mut platform = Platform::new(randomness);
+    |         ----^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:179:9
+    |
+179 |     let mut moderator = server::new(b"regulator and moderator", &randomness);
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:180:9
+    |
+180 |     let mut regulator = server::new(b"regulator and moderator", &randomness);
+    |         ----^^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `Sign`
+   --> rust/trace-ruler/benches/bench.rs:201:13
+    |
+201 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_Sign`
+
+warning: unused variable: `i`
+   --> rust/trace-ruler/benches/bench.rs:206:13
+    |
+206 |         for i in 0..t{
+    |             ^ help: if this is intentional, prefix it with an underscore: `_i`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:197:9
+    |
+197 |     let mut platform = Platform::new(randomness);
+    |         ----^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `Sign`
+   --> rust/trace-ruler/benches/bench.rs:238:13
+    |
+238 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_Sign`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:231:9
+    |
+231 |     let mut user = User::new();
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> rust/trace-ruler/benches/bench.rs:232:9
+    |
+232 |     let mut platform = Platform::new(randomness);
+    |         ----^^^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `Sign`
+   --> rust/trace-ruler/benches/bench.rs:296:13
+    |
+296 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_Sign`
+
+warning: unused variable: `i`
+   --> rust/trace-ruler/benches/bench.rs:321:13
+    |
+321 |         for i in 0..t{
+    |             ^ help: if this is intentional, prefix it with an underscore: `_i`
+
+warning: function `bench_point_mul` is never used
+  --> rust/trace-ruler/benches/bench.rs:15:4
+   |
+15 | fn bench_point_mul(c: &mut Criterion){
+   |    ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `bench_decryption` is never used
+  --> rust/trace-ruler/benches/bench.rs:52:4
+   |
+52 | fn bench_decryption(c: &mut Criterion){
+   |    ^^^^^^^^^^^^^^^^
+
+warning: function `bench_pok` is never used
+  --> rust/trace-ruler/benches/bench.rs:72:4
+   |
+72 | fn bench_pok(c: &mut Criterion){
+   |    ^^^^^^^^^
+
+warning: function `bench_user_reg` is never used
+   --> rust/trace-ruler/benches/bench.rs:157:4
+    |
+157 | fn bench_user_reg(c: &mut Criterion) {
+    |    ^^^^^^^^^^^^^^
+
+warning: function `bench_trace` is never used
+   --> rust/trace-ruler/benches/bench.rs:174:4
+    |
+174 | fn bench_trace(c: &mut Criterion){
+    |    ^^^^^^^^^^^
+
+warning: function `bench_inspect` is never used
+   --> rust/trace-ruler/benches/bench.rs:193:4
+    |
+193 | fn bench_inspect(c: &mut Criterion){
+    |    ^^^^^^^^^^^^^
+
+warning: function `bench_report` is never used
+   --> rust/trace-ruler/benches/bench.rs:228:4
+    |
+228 | fn bench_report(c: &mut Criterion){
+    |    ^^^^^^^^^^^^
+
+warning: function `bench` is never used
+   --> rust/trace-ruler/benches/bench.rs:259:4
+    |
+259 | fn bench(c: &mut Criterion){
+    |    ^^^^^
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/benches/bench.rs:201:10
+    |
+201 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |          ^ help: convert the identifier to snake case (notice the capitalization): `k`
+    |
+    = note: `#[warn(non_snake_case)]` on by default
+
+warning: variable `Sign` should have a snake case name
+   --> rust/trace-ruler/benches/bench.rs:201:13
+    |
+201 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |             ^^^^ help: convert the identifier to snake case (notice the capitalization): `sign`
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/benches/bench.rs:238:10
+    |
+238 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |          ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Sign` should have a snake case name
+   --> rust/trace-ruler/benches/bench.rs:238:13
+    |
+238 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |             ^^^^ help: convert the identifier to snake case (notice the capitalization): `sign`
+
+warning: variable `K` should have a snake case name
+   --> rust/trace-ruler/benches/bench.rs:296:10
+    |
+296 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |          ^ help: convert the identifier to snake case (notice the capitalization): `k`
+
+warning: variable `Sign` should have a snake case name
+   --> rust/trace-ruler/benches/bench.rs:296:13
+    |
+296 |     let (K, Sign) = list_set_up(&mut regulator, &mut moderator, input.clone());
+    |             ^^^^ help: convert the identifier to snake case (notice the capitalization): `sign`
+
+warning: `trace-ruler` (bench "bench") generated 38 warnings (run `cargo fix --bench "bench"` to apply 17 suggestions)
+    Finished `bench` profile [optimized] target(s) in 1.48s
+     Running unittests src/lib.rs (/home/jz/work/trace-ruler-from-libsignal/libsignal/target/release/deps/trace_ruler-9119a84283dad1b6)
+
+running 7 tests
+test aes::tests::test_aes_256_cbc_encrypt ... ignored
+test test::test ... ignored
+test test::test_reg ... ignored
+test test::test_report ... ignored
+test test::test_send ... ignored
+test test::test_sig_ser ... ignored
+test test::test_trace ... ignored
+
+test result: ok. 0 passed; 0 failed; 7 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (/home/jz/work/trace-ruler-from-libsignal/libsignal/target/release/deps/trace_ruler-4bbd914bb7543d2f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running benches/bench.rs (/home/jz/work/trace-ruler-from-libsignal/libsignal/target/release/deps/bench-527944bd9fe688f4)
+Gnuplot not found, using plotters backend
+Benchmarking trace-ruler/list_gen/10000
+Benchmarking trace-ruler/list_gen/10000: Warming up for 3.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 64.8s.
+Benchmarking trace-ruler/list_gen/10000: Collecting 10 samples in estimated 64.776 s (10 iterations)
+Benchmarking trace-ruler/list_gen/10000: Analyzing
+trace-ruler/list_gen/10000
+                        time:   [6.0911 s 6.1734 s 6.2543 s]
+                        change: [-1.2314% +0.4865% +1.9262%] (p = 0.57 > 0.05)
+                        No change in performance detected.
+Benchmarking trace-ruler/list_gen/100000
+Benchmarking trace-ruler/list_gen/100000: Warming up for 3.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 628.9s.
+Benchmarking trace-ruler/list_gen/100000: Collecting 10 samples in estimated 628.89 s (10 iterations)
+Benchmarking trace-ruler/list_gen/100000: Analyzing
+trace-ruler/list_gen/100000
+                        time:   [61.741 s 62.017 s 62.403 s]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high severe
+Benchmarking trace-ruler/list_gen/1000000
+Benchmarking trace-ruler/list_gen/1000000: Warming up for 3.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 6229.2s.
+Benchmarking trace-ruler/list_gen/1000000: Collecting 10 samples in estimated 6229.2 s (10 iterations)
+Benchmarking trace-ruler/list_gen/1000000: Analyzing
+trace-ruler/list_gen/1000000
+                        time:   [622.39 s 623.19 s 623.98 s]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) low mild
+Benchmarking trace-ruler/list_gen/10000000
+Benchmarking trace-ruler/list_gen/10000000: Warming up for 3.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 63434.0s.
+Benchmarking trace-ruler/list_gen/10000000: Collecting 10 samples in estimated  63434 s (10 iterations)
+Benchmarking trace-ruler/list_gen/10000000: Analyzing
+trace-ruler/list_gen/10000000
+                        time:   [6315.2 s 6348.5 s 6374.5 s]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) low mild
+

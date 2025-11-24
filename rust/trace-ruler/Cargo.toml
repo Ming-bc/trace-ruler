@@ -1,0 +1,55 @@
+[package]
+name = "trace-ruler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+zkcredential = {path = "../zkcredential"}
+cuckoofilter = {path = "../rust-cuckoofilter"}
+apple-psi = {path = "../apple-psi"}
+elgamal = {path = "../elgamal"}
+poksho = { path = "../poksho" }
+shamir = { path = "../shamir" }
+libsignal-protocol= {path = "../protocol"}
+aes-gcm = "0.10"
+aes = "0.8"
+hex = "0.4"
+
+rand = "0.8"
+rand_core = {version = "0.6", features = ["getrandom"]}
+cfg-if = "1.0.0"
+curve25519-dalek = { version = "4.0", features = ["serde"] }
+derive-where = "1.2.5"
+displaydoc = "0.2"
+lazy_static = "1.4.0"
+partial-default = { version = "0.1.0", features = ["derive"] }
+serde = { version = "1.0.106", features = ["derive"] }
+sha2 = "0.10"
+subtle = "2.3"
+thiserror = "1.0.57"
+boring = "4.6.0"
+serde_json = "1.0"
+block-modes = "0.8"
+block-padding = "0.2"
+cipher = "0.4"
+hex-literal = "0.3"
+cbc = {version = "0.1.2", features = ["std"] }
+hpke = "0.12.0"
+bincode = "1.2.1"
+uuid = "1.1.2"
+futures-util = "0.3"
+rand_chacha = "0.3"
+tokio = { version = "1.28", features = ["full"] }
+clap = "4.0"
+
+[dev-dependencies]
+bincode = "1.2.1"
+hex = "0.4"
+hex-literal = "0.4.1"
+
+# For benchmarking
+criterion = "0.5"
+
+[[bench]]
+name = "bench"
+harness = false
