@@ -2,7 +2,7 @@
 
 *This repository contains the implementation and evaluation of trace ruler, an abuse-resistant source tracing scheme for encrypted messaging systems.*
 
-**NDSS 2026:** Abuse Resistant Traceability with Minimal Trust for Encrypted Messaging Systems [[conference]([url](https://dx.doi.org/10.14722/ndss.2026.240456))] [[eprint]([url](https://eprint.iacr.org/2025/2187))]
+**NDSS 2026:** Abuse Resistant Traceability with Minimal Trust for Encrypted Messaging Systems [[conference](https://dx.doi.org/10.14722/ndss.2026.240456)] [[eprint](https://eprint.iacr.org/2025/2187)]
 
 ## Overview
 
